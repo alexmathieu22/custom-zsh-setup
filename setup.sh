@@ -117,6 +117,26 @@ install_oh_my_zsh() {
     fi
 }
 
+# Function to install Powerlevel10k
+install_powerlevel10k() {
+    echo "⚡ Installing Powerlevel10k theme..."
+    
+    # Check if Powerlevel10k is already installed via Homebrew
+    if brew list powerlevel10k &>/dev/null; then
+        echo "✅ Powerlevel10k is already installed"
+    else
+        echo "📦 Installing Powerlevel10k with Homebrew..."
+        brew install powerlevel10k
+        
+        if brew list powerlevel10k &>/dev/null; then
+            echo "✅ Powerlevel10k installed successfully!"
+        else
+            echo "❌ Powerlevel10k installation failed"
+            return 1
+        fi
+    fi
+}
+
 # Function to install zsh-autosuggestions
 install_zsh_autosuggestions() {
     echo "🔧 Installing zsh-autosuggestions..."
@@ -276,6 +296,9 @@ main() {
     
     # Install Oh My Zsh
     install_oh_my_zsh
+    
+    # Install Powerlevel10k theme
+    install_powerlevel10k
     
     # Install zsh-autosuggestions
     install_zsh_autosuggestions
