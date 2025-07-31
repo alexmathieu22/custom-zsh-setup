@@ -14,8 +14,8 @@ fi
 # Path to oh-my-zsh installation
 export ZSH="$HOME/.oh-my-zsh"
 
-# Theme configuration
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# Theme configuration (using default since we load Powerlevel10k separately)
+ZSH_THEME=""
 
 # Plugins to load
 plugins=(
