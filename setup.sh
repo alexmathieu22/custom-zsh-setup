@@ -215,6 +215,23 @@ install_fzf() {
     fi
 }
 
+install_neovim() {
+    echo "📝 Installing Neovim..."
+    # Check if neovim is already installed via Homebrew
+    if brew list neovim &>/dev/null; then
+        echo "✅ Neovim is already installed"
+    else
+        echo "📦 Installing Neovim with Homebrew..."
+        brew install neovim
+        if brew list neovim &>/dev/null; then
+            echo "✅ Neovim installed successfully!"
+        else
+            echo "❌ Neovim installation failed"
+            return 1
+        fi
+    fi
+}
+
 # Function to import custom iTerm2 profile
 import_iterm2_profile() {
     echo "🎨 Setting up custom iTerm2 profile..."
@@ -308,6 +325,9 @@ main() {
     
     # Install fzf
     install_fzf
+
+    # Install Neovim
+    install_neovim
     
     # Import custom iTerm2 profile
     import_iterm2_profile
